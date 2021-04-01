@@ -1,0 +1,2 @@
+# fitsync
+Fitness debugger app
