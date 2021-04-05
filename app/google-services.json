@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "838185395282",
+    "project_id": "fitsync-f242b",
+    "storage_bucket": "fitsync-f242b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838185395282:android:372d5f189726be2c5aab8b",
+        "android_client_info": {
+          "package_name": "com.stackedprogrammer.fitsync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838185395282-on3p5c19ak3g0557670c634jgos3thck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6O0UAuTY85EvG_7SDbCvLI_0G8BiYPpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838185395282-on3p5c19ak3g0557670c634jgos3thck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
