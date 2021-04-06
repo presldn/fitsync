@@ -6,7 +6,7 @@
     <string name="latest_sync_at">Latest sync at %1$s</string>
     <string name="sync_message">This data will be sync\'d every 5–15 minutes</string>
     <string name="active_time_message">The time FitSync can run (max 720 minutes)</string>
-    <string name="standard_min">60 min \n Watch AD to add 60 minutes</string>
+    <string name="standard_min">60 min</string>
     <string name="extra_min">250 min \n Watch AD to add 250 minutes</string>
     <string name="speed">Speed</string>
     <string name="steps_min">steps/min</string>
@@ -15,4 +15,9 @@
     <string name="behavior">Behavior</string>
     <string name="human">Human</string>
     <string name="stable">Stable</string>
+
+    <plurals name="numberOfMinutes">
+        <item quantity="one">Active time: %d minute remaining</item>
+        <item quantity="other">Active time: %d minutes remaining</item>
+    </plurals>
 </resources>

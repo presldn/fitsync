@@ -109,11 +109,10 @@
             android:paddingBottom="16dp">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/minutes_remaining"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -129,17 +128,18 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/standardMin"
+                android:id="@+id/standard_min"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="invisible"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:layout_marginEnd="4dp"
+                android:text="@string/standard_min" />
 
             <Button
-                android:id="@+id/extraMin"
+                android:id="@+id/extra_min"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
                 android:text="@string/extra_min" />
         </LinearLayout>

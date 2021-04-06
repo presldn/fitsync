@@ -26,12 +26,20 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mGoogleSignInClient: GoogleSignInClient
 
+    private val maxMinutes: Int = 720
+
     private val reqCode: Int = 123
+
+    private var minutes: Int = 0
 
     private lateinit var loginButton: Button
     private lateinit var profileImage: SimpleDraweeView
     private lateinit var emailAddress: TextView
     private lateinit var fullName: TextView
+    private lateinit var minutesRemaining: TextView
+
+    private lateinit var standardMinButton: Button
+    private lateinit var extraMinButton: Button
 
     private val auth by lazy {
         FirebaseAuth.getInstance()
@@ -52,17 +60,52 @@ class MainActivity : AppCompatActivity() {
         profileImage = findViewById(R.id.profile_image)
         emailAddress = findViewById(R.id.profile_email_address)
         fullName = findViewById(R.id.profile_full_name)
+        minutesRemaining = findViewById(R.id.minutes_remaining)
 
+        standardMinButton = findViewById(R.id.standard_min)
+        extraMinButton = findViewById(R.id.extra_min)
 
         loginButton.setOnClickListener {
-            if (GoogleSignIn.getLastSignedInAccount(this) != null) {
+            if (auth.currentUser != null) {
                 logout()
             } else {
                 signInGoogle()
             }
         }
 
+        standardMinButton.setOnClickListener {
+            if (minutes == 0) {
+                addStandardMinutes()
+            }
+        }
 
+        extraMinButton.setOnClickListener {
+            if (minutes < maxMinutes) {
+                addExtraMinutes()
+            }
+        }
+
+    }
+
+    private fun addExtraMinutes() {
+        val sum = minutes + 250
+
+        minutes = if (sum > maxMinutes) {
+            maxMinutes
+        } else {
+            sum
+        }
+
+        updateTimer()
+    }
+
+    private fun addStandardMinutes() {
+        minutes += 60
+        updateTimer()
+    }
+
+    private fun updateTimer() {
+        minutesRemaining.text = resources.getQuantityString(R.plurals.numberOfMinutes, minutes, minutes)
     }
 
     private fun logout() {
@@ -106,8 +149,11 @@ class MainActivity : AppCompatActivity() {
 
         } else {
             emailAddress.visibility = View.GONE
+            fullName.text = getString(R.string.login_prompt)
             loginButton.text = getString(R.string.login)
         }
+
+        updateTimer()
     }
 
     private fun setImageProfile(photoUrl: Uri?) {
@@ -138,10 +184,6 @@ class MainActivity : AppCompatActivity() {
 
         val user = auth.currentUser
         updateUI(user)
-
-        if (GoogleSignIn.getLastSignedInAccount(this) != null) {
-            Toast.makeText(this, "Already logged in.", Toast.LENGTH_SHORT).show()
-        }
     }
 
 }
